@@ -23,7 +23,7 @@ function validate(){
     document.getElementById("usernameGroup").classList.add("has-success");
 
   }
-//if the passward starts with 'passward', same as user, less than 6 chars, greater than 20 chars it fails
+//if the passward starts with 'password', same as user, less than 6 chars, greater than 20 chars it fails
   if (posPass == 0 || passEntered == userEntered || passEntered < 6 || passEntered > 20){
   //Show message that there is an error with the password...
   document.getElementById("passwordError").innerHTML="Bad password.";
