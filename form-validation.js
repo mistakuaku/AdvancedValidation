@@ -2,8 +2,12 @@ function validate(){
   //Grab the user's input and store in variables
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
+  var posZeroes = userEntered.search(" "); //checks if there are spaces
+  var posPass = passEntered.search(/password/i); //checks if password is in the string regardless of case
 
-  if (userEntered.length < 6) {
+
+//if the username is less than 6 chars or has any spaces it fails
+  if (userEntered.length < 6 || posZeroes > -1) {
   //Show message that there is an error with the username...
   document.getElementById("usernameError").innerHTML="Bad username.";
   document.getElementById("usernameError").classList.remove("hidden-message");
@@ -19,8 +23,8 @@ function validate(){
     document.getElementById("usernameGroup").classList.add("has-success");
 
   }
-
-  if (passEntered == "password"){
+//if the passward starts with 'passward', same as user, less than 6 chars, greater than 20 chars it fails
+  if (posPass == 0 || passEntered == userEntered || passEntered < 6 || passEntered > 20){
   //Show message that there is an error with the password...
   document.getElementById("passwordError").innerHTML="Bad password.";
   document.getElementById("passwordError").classList.remove("hidden-message");
