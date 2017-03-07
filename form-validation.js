@@ -3,8 +3,11 @@ function validate(){
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
   var posZeroes = userEntered.search(" "); //checks if there are spaces
-  var posPass = passEntered.search(/password/i); //checks if password is in the string regardless of case
 
+  //checks if the password string is 8 characters
+  if(passEntered.length == 8) {
+    var posPass = passEntered.search(/password/i); //checks if password is in the string regardless of case
+  }
 
 //if the username is less than 6 chars or has any spaces it fails
   if (userEntered.length < 6 || posZeroes > -1) {
